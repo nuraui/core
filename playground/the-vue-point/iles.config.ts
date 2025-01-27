@@ -58,6 +58,12 @@ export default defineConfig({
     },
     remarkPlugins: ['remark-gfm'],
   },
+  autoImport: {
+    dirs: [
+      // 'src/composables', // already added by Îles
+      'src/logic', // auto-import composables from `src/logic` folder
+    ],
+  },  
   vite: {
     plugins: [
       reactivityTransform(),

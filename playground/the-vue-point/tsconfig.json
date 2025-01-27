@@ -21,6 +21,7 @@
     }
   },
   "include": [
+    "auto-imports.d.ts",
     "components.d.ts",
     "composables.d.ts"
   ]

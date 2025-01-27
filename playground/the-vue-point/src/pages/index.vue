@@ -3,7 +3,6 @@ alias: ['/posts']
 </page>
 
 <script setup lang="ts">
-import { getPosts } from '~/logic/posts'
 
 let posts = $(getPosts())
 </script>
