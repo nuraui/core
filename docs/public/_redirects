@@ -1,2 +1,3 @@
 /config/plugins https://iles-docs.netlify.app/guide/plugins 301
 /guide/comparisons https://iles-docs.netlify.app/faqs 301
+/guide/client-scripts https://iles-docs.netlify.app/guide/hydration#client-script-block 301

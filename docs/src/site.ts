@@ -38,7 +38,6 @@ const site = {
         { text: 'Static Assets', link: '/guide/static-assets' },
         { text: 'Hydration', link: '/guide/hydration' },
         { text: 'Frameworks', link: '/guide/frameworks' },
-        { text: 'Client Scripts', link: '/guide/client-scripts' },
         { text: 'Routing', link: '/guide/routing' },
         { text: 'Turbo', link: '/guide/turbo' },
         { text: 'RSS Feeds', link: '/guide/rss' },

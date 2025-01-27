@@ -11,6 +11,13 @@
 [Demo]: https://the-vue-point-with-iles.netlify.app/cat-zone
 [blog repo]: https://github.com/ElMassimo/iles/blob/main/playground/the-vue-point/src/components/CatDisplay.vue
 
+[previous section]: /guide/hydration
+[strategies]: /guide/hydration#clientload
+[strategy]: /guide/hydration#clientload
+[layout]: /guide/development#layouts
+[components]: /guide/development#components
+[frameworks]: /guide/frameworks
+
 # Hydration Directives <Logo/>
 
 <Iles/> uses the Islands Architecture. It creates fast, static web pages with only small interactive parts, like a carousel that requires JavaScript.
@@ -122,6 +129,98 @@ Prefer one of the previous strategies whenever possible.
 </Tip>
 
 [layout shift]: https://web.dev/cls/
+
+## 🍰 Client Script Block 
+
+<Iles/> provides support for a `script client` block in Vue single-file components.
+
+Sometimes you need client-side code that does not map to a component. Alternatively, you can use [vanilla](#vanilla-components) components.
+
+```vue
+<script client:load lang="ts">
+console.log('Powered by îles 🏝', 'https://iles-docs.netlify.app')
+</script>
+```
+
+<Tip warn>
+Client script blocks are completely detached from the Vue component, which will be statically pre-rendered. The [strategy] is applied to the script, __not__ the component.
+</Tip>
+
+The script will be injected every time the component is rendered, and it's
+guaranteed to execute after all elements rendered by the component are in the DOM.
+
+```vue
+<script client:load lang="ts">
+document.getElementById('sidebar').classList.toggle('live') // always works
+</script>
+
+<template>
+  <div id="sidebar"/>
+</template>
+```
+
+> If you need code to execute once, use `script client` in a [layout].
+
+### Execution Strategies <Logo/>
+
+Other [strategies] that we saw in the [previous section] are supported,
+but you must export `onLoad`.
+
+This function will be called when the condition for the selected strategy is met—when the element becomes visible if using `client:visible`, when the media query matches if using `client:media`, etc.
+
+```vue
+<script client:visible lang="ts">
+console.log('Not necessarily visible')
+
+export function onLoad () {
+  console.log('Now visible')
+}
+</script>
+```
+
+## 🍦 Vanilla Components
+
+`.js` and `.ts` files can also be used as client scripts in <Iles/>, and you can
+choose where to place them by rendering them as islands.
+
+```vue
+<script setup lang="ts">
+import GalleryPreloader from '~/logic/imagePreloader' // .ts
+</script>
+
+<template>
+  <GalleryPreloader client:visible/>
+  ...
+</template>
+```
+
+<Tip warn>
+You must provide a `client:` [strategy] when using vanilla components.
+</Tip>
+
+Vanilla components should export a function to call when the selected
+[hydration strategy][strategy] is fulfilled.
+
+```ts
+export const onLoad = () => fetch('/images').then(...)
+```
+
+If you need to use the provided parameters, use the `OnLoadFn` typings:
+
+```ts
+import type { OnLoadFn } from 'iles'
+
+export const onLoad: OnLoadFn = (el, props, slots) => {
+  // Do whatever you need with the element.
+}
+```
+
+<Tip title="Why not use a renderless component?">
+The benefit is that vanilla JS doesn't require a runtime, so the final
+bundle size will be smaller.
+
+If your app already [uses a framework][frameworks] in some of the islands, then use whatever you find more natural.
+</Tip>
 
 ## 💫 Suspense
 
