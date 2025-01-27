@@ -7,6 +7,7 @@
 [Preact]: /guide/plugins#preactpreset-vite
 [SolidJS]: /guide/plugins#vite-plugin-solid
 [Svelte]: /guide/plugins#sveltejsvite-plugin-svelte
+[Suspense]: https://vuejs.org/guide/built-ins/suspense
 
 # Hydration Directives <Logo/>
 
@@ -98,3 +99,82 @@ Prefer one of the previous strategies whenever possible.
 </Tip>
 
 [layout shift]: https://web.dev/cls/
+
+## 💫 Suspense
+
+Îles automatically wraps îslands with the Vue [Suspense] component when they use the `<script setup>` with top-level `await` expressions.
+
+This automatic suspense handling means you don't need to restructure your components to accomodate suspense logic manually. It is particularly useful when fetching data from external sources, such as databases or headless CMSs, within your island on the client side.
+
+In the following example, the `CatDisplay` îsland is loaded from the parent component and hydrated using the `client:load` directive.
+
+```vue
+<!-- cat-zone.mdx page -->
+<CatDisplay client:load />
+```
+
+The `CatDisplay` îsland fetches a random cat image from an API source. 
+
+```vue
+<!-- CatDisplay.vue -->
+<script setup lang="ts">
+import {$fetch} from 'ofetch'
+const data = ref()
+const isLoading = ref(true)
+const error = ref(false)
+
+await $fetch('https://api.thecatapi.com/v1/images/search', {
+  async onResponse({request, response, options}) {
+    isLoading.value = false
+    data.value = response._data[0]
+  },
+  async onResponseError({request, response, options}) {
+    error.value = true
+  },
+})
+</script>
+
+<template>
+  <p v-if="isLoading">Loading...</p>
+  <img
+    v-else
+    :src="data.url"
+    alt="Boots"
+    style="object-fit: cover; max-height: 600px" />
+  <p v-if="error">Oops! An error occured, please try again.</p>
+</template>
+```
+
+You can still manually handle [Suspense] yourselves if you want to use it's loading / error states, and don't mind create a child component to handle the asynchronous data fetch.
+
+To illustrate, the top-level `await` in the above example and the `<img>` tag can be moved into a child component called `<CatOfTheDay>`. Then, the loading / error states of [Suspense] can be implemented like below.
+
+```vue
+<!-- cat-zone.mdx page -->
+<CatDisplay client:load />
+```
+
+```vue
+<!-- CatDisplay.vue -->
+<template>
+  <Suspense>
+    <CatOfTheDay />
+    <template #fallback><p>Loading...</p></template>
+  </Suspense>
+</template>
+```
+
+```vue
+<!-- CatOfTheDay.vue -->
+<script setup lang="ts">
+  import {$fetch} from 'ofetch'
+  const [data] = await $fetch('https://api.thecatapi.com/v1/images/search')
+</script>
+
+<template>
+  <img
+    :src="data.url"
+    alt="Awiwi"
+    style="object-fit: cover; max-height: 600px" />
+</template>
+```

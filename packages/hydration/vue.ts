@@ -1,4 +1,4 @@
-import { createApp as createClientApp, createSSRApp, createStaticVNode, h } from 'vue'
+import { createApp as createClientApp, createSSRApp, createStaticVNode, h, Suspense } from 'vue'
 import type { Component as App, DefineComponent as Component } from 'vue'
 import type { EnhanceIslands, Props, Slots } from './types'
 import { onDispose } from './hydration'
@@ -11,7 +11,12 @@ export default async function createVueIsland (component: Component, id: string,
     return [slotName, () => (createStaticVNode as any)(content)]
   }))
 
-  const appDefinition: App = { render: () => h(component, props, slotFns) }
+  let appDefinition: App
+  const isAsyncSetup = component.setup?.constructor.name === 'AsyncFunction'
+  if (isAsyncSetup)
+    appDefinition = { render: () => h(Suspense, [h(component, props, slotFns)]) }
+  else
+    appDefinition = { render: () => h(component, props, slotFns) }
 
   if (import.meta.env.DEV)
     appDefinition.name = `Island: ${nameFromFile(component.__file)}`
