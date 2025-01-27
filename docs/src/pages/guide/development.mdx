@@ -15,6 +15,7 @@
 [`@unhead/vue`]: https://unhead.unjs.io/setup/vue/installation
 [shortcodes]: /guide/markdown#advanced-provide-components-shortcodes
 [vue-router]: https://next.router.vuejs.org/
+[discussion]: https://github.com/ElMassimo/iles/discussions/6#discussioncomment-1479755
 
 # Development 💻
 
@@ -225,6 +226,10 @@ export default defineApp({
   enhanceApp ({ app, head, router }) {
     // Configure the "outer" shell to customize it's development/build logic
   },
+  enhanceIslands ({ app }) {
+    // Configure Vue Islands with plugins and other top level runtime logic
+    app.use(pinia)
+  },
   head ({ frontmatter, site }) {
     return {
       meta: [
@@ -249,7 +254,41 @@ export default defineApp({
 
 - **Type:** `(context: AppContext) => void | Promise<void>`
 
-A hook where you can add additional development/build logic. See this [discussion] thread for few suggestions.
+A hook that allows you to add additional development/build logic. See this [discussion] thread for few suggestions.
+
+### `enhanceIslands` (Vue Islands only)
+
+- **Type:** `(context: IslandContext) => void | Promise<void>`
+
+A hook that allows you to extend your Vue Islands with plugins such as Pinia, i18n, Vuetify, and more, along with any other top-level runtime logic on your site.
+
+The hook will be invoked for every Vue Island in your site.
+
+```ts
+import { defineApp } from 'iles'
+import { createI18n } from 'vue-i18n'
+import { createPinia } from 'pinia'
+import { createVuetify } from 'vuetify'
+
+const i18n = createI18n({
+  // vue-i18n options ...
+})
+const pinia = createPinia()
+const vuetify = createVuetify({
+  // vuetify options ...
+})
+
+export default defineApp({
+  enhanceIslands({ app }) {
+    app.use(i18n)
+    app.use(pinia)
+    if(app._component.name === 'Island: ChatboxIsland') {
+      // To initialise Vuetify only within ChatboxIsland.vue
+      app.use(vuetify)
+    }
+  },
+})
+```
 
 ### `head`
 

@@ -51,7 +51,7 @@ export const createApp: CreateAppFactory = async (options = {}) => {
     siteRef = {}
   }
   
-  const { head: headConfig, enhanceApp, router: routerOptions } = userApp
+  const { head: headConfig, enhanceIslands, enhanceApp, router: routerOptions } = userApp
   const { routePath = config.base, ssrProps } = options
 
   const app = newApp(App)
@@ -96,7 +96,14 @@ export const createApp: CreateAppFactory = async (options = {}) => {
   // Apply any configuration added by the user in app.ts
   // if (headConfig) useHead(ref(typeof headConfig === 'function' ? headConfig(context) : headConfig))
   if (headConfig) head.push(ref(typeof headConfig === 'function' ? headConfig(context) : headConfig))
-  if (enhanceApp) await enhanceApp(context)
+  
+  // enhanceIslands is called on the shell app during development otherwise user will have to duplicate `app.use(pinia)` in both enhanceIslands and enhanceApp
+  if (enhanceIslands) {
+    await enhanceIslands({ app })
+  }
+  if (enhanceApp) {
+    await enhanceApp(context)
+  }
   await installMDXComponents(context, userApp)
 
   return context
