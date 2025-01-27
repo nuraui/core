@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import { computed } from 'vue'
-import { getPosts } from '~/logic/recipes'
 
 const posts = getPosts()
 const { page } = usePage()

@@ -23,6 +23,7 @@
     }
   },
   "include": [
+    "src/**/*",
     "auto-imports.d.ts",
     "components.d.ts",
     "composables.d.ts"

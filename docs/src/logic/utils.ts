@@ -23,5 +23,5 @@ export function getImage(fileName: string) {
   const modules = import.meta.glob('@/assets/recipes/**/*.{jpg,png,svg}', { eager: true, import: 'default' })
   const moduleKeys = Object.keys(modules)
   const fileSrc = moduleKeys.find(key => key.endsWith(fileName))
-  return fileSrc ? modules[fileSrc] : ''
+  return (fileSrc ? modules[fileSrc] : '') as string
 }

@@ -4,8 +4,8 @@
 </page>
  
 <script setup lang="ts">
-import { getPosts } from '~/logic/recipes'
 import { getImage } from '~/logic/utils';
+
 const recipes = getPosts()
 </script>
  

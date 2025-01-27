@@ -78,8 +78,17 @@ export default defineConfig({
       ],
     ],
   },
+  autoImport: {
+    imports: [
+      '@vueuse/core', // auto-import composables from library
+    ],
+    dirs: [
+      // 'src/composables', // already added by Îles
+      'src/logic', // auto-import composables from `src/logic` folder
+    ],
+  },
   ssg: {
-    manualChunks (id, api) {
+    manualChunks(id, api) {
       if (id.includes('preact') || id.includes('algolia') || id.toLowerCase().includes('docsearch'))
         return 'docsearch'
     },
