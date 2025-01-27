@@ -13,12 +13,33 @@
 
 # Hydration Directives <Logo/>
 
-You can define which components should remain interactive in the production
-build by using `client:` directives in your components (borrowed from [Astro]).
+<Iles/> uses the Islands Architecture. It creates fast, static web pages with only small interactive parts, like a carousel that requires JavaScript.
+
+> Learn about the Islands Architecture from the [Astro](https://docs.astro.build/en/concepts/islands/) docs, Jason Miller's [blog](https://jasonformat.com/islands-architecture/), and his [keynote](https://www.youtube.com/watch?v=k-A2VfuUROg&t=969s).
+
+## Îles vs Petite-Vue
+
+<VueLogo/> Petite-Vue lets you <kbd>progressively enhance</kbd> your server-rendered or statically generated HTML pages with sprinkes of interactivity. This can be done either through a global app (for the whole page) or with multiple îslands of interactivity.
+
+<Iles/> additionally lets you <kbd>progressively hydrate</kbd> (when to hydrate) your server-rendered or statically generated HTML pages with îslands of interactivity. It follows a component-driven workflow delivering a simple yet powerful development experience, thanks to <VueLogo/> and <ViteLogo/>.
+
+## Îles vs Nuxt
+
+<Iles/> follow an architecture where <kbd>dynamic îslands</kbd> are embedded within a static page. Hydration strategies are mandatory to make components interactive.
+
+<NuxtLogo/> Nuxt, on the contrary, follows an architecture where <kbd>static îslands</kbd> are embedded within a dynamic app. Marking components as [server components] are optional.
+
+> Learn more about this architectural difference in Daniel Roe's blog post [here](https://roe.dev/blog/nuxt-server-components).
+
+## Hydration Strategies
+
+You can define which components in your îles project should remain interactive in the production build by using `client:` directives in your components (borrowed from [Astro]).
 
 Any JS required for these components will be automatically inferred and optimized to perform partial hydration in the final build.
 
 > No JS is shipped unless you use a hydration strategy! 🏝
+
+> Îles doesn't support an îsland within another îsland, so do not nest îslands in your project.
 
 Here's an example with MDX, an interactive audio player in a mostly static page:
 
