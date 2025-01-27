@@ -86,6 +86,9 @@ importers:
       '@iconify-json/heroicons-outline':
         specifier: ^1.1.10
         version: 1.1.10
+      '@islands/excerpt':
+        specifier: workspace:*
+        version: link:../packages/excerpt
       '@islands/headings':
         specifier: workspace:*
         version: link:../packages/headings
@@ -9305,7 +9308,7 @@ snapshots:
   '@unocss/rule-utils@0.61.9':
     dependencies:
       '@unocss/core': 0.61.9
-      magic-string: 0.30.12
+      magic-string: 0.30.17
 
   '@unocss/scope@0.61.9': {}
 
@@ -9490,7 +9493,7 @@ snapshots:
       '@vue/compiler-ssr': 3.5.4
       '@vue/shared': 3.5.4
       estree-walker: 2.0.2
-      magic-string: 0.30.12
+      magic-string: 0.30.17
       postcss: 8.5.1
       source-map-js: 1.2.0
 
@@ -11933,7 +11936,7 @@ snapshots:
 
   magic-string-ast@0.6.2:
     dependencies:
-      magic-string: 0.30.12
+      magic-string: 0.30.17
 
   magic-string@0.25.9:
     dependencies:

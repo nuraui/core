@@ -21,6 +21,7 @@ const site = {
     { text: 'Guide', link: '/guide' },
     { text: 'Config', link: '/config' },
     { text: 'FAQs', link: '/faqs' },
+    { text: 'Recipes', link: '/recipes' },
   ],
 
   sidebar: [
@@ -55,6 +56,21 @@ const site = {
         { text: 'Troubleshooting', link: '/faqs/troubleshooting' },
       ],
     },
+    {
+      text: 'Recipes',
+      link: '/recipes',
+      children: [
+        {
+          text: 'Recipes',
+          link: '/recipes'
+        },
+        {
+          text: 'Vanilla Vue to Îles',
+          link: '/recipes/vanilla-vue-to-iles'
+        }
+      ],
+    },    
+    
   ],
 }
 
