@@ -15,7 +15,6 @@ import { parseId } from './parse'
 import { wrapIslandsInSFC, wrapLayout } from './wrap'
 import { extendSite } from './site'
 import { detectMDXComponents } from './markdown'
-import { autoImportComposables, writeComposablesDTS } from './composables'
 import documents from './documents'
 
 function isMarkdown (path: string) {
@@ -68,8 +67,6 @@ export default function IslandsPlugins (appConfig: AppConfig): PluginOption[] {
         root = config.root
         isBuild = config.command === 'build'
         appConfig.resolvePath = config.createResolver()
-
-        writeComposablesDTS(root)
 
         // Detect mdxComponents in app.ts to ensure MDX files are compiled accordingly.
         const result = await transformUserFile(appPath)
@@ -208,20 +205,9 @@ export default siteRef`  : 'export default {}'
     plugins.vue,
     ...appConfig.vitePlugins,
     plugins.components,
-
+    plugins.autoImport,
+    
     documents(appConfig),
-
-    {
-      name: 'iles:composables',
-      enforce: 'post',
-      async transform (code, id) {
-        if (!id.startsWith(appConfig.srcDir)) return
-
-        const { path, query } = parseId(id)
-        if (isVueScript(path, query) || /\.[tj]sx?/.test(path))
-          return await autoImportComposables(code, id)
-      },
-    },
 
     {
       name: 'iles:page-data',

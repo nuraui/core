@@ -13,7 +13,8 @@ tocLevel: 3
 [@userquin]: https://twitter.com/userquin
 
 [@vitejs/plugin-vue]: https://www.npmjs.com/package/@vitejs/plugin-vue
-[unplugin-vue-components]: https://github.com/antfu/unplugin-vue-components
+[unplugin-vue-components]: https://github.com/unplugin/unplugin-vue-components
+[unplugin-auto-import]: https://github.com/unplugin/unplugin-auto-import
 [MDX]: https://github.com/mdx-js/mdx
 
 [vite-plugin-solid]: https://github.com/solidjs/vite-plugin-solid
@@ -332,6 +333,24 @@ export default defineConfig({
 })
 ```
 <Caption>`iles.config.ts`</Caption>
+
+### <kbd>[unplugin-auto-import]</kbd>
+
+Enables auto-importing APIs on-demand, and is leveraged internally to support
+automatic import of APIs and composables from `vue`, `@unhead/vue` and from the users's `src/composables` folder.
+
+```ts
+  // Example config from "The Vue Point in îles"
+  autoimports: {
+    imports: [
+      '@vueuse/core', // auto-import composables from library
+    ],
+    dirs: [
+      // 'src/composables', // already added by Îles
+      'src/logic', // auto-import composables from `src/logic` folder
+    ],    
+  }
+```
 
 ### <kbd>[unplugin-vue-components]</kbd>
 

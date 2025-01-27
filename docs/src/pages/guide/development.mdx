@@ -16,6 +16,8 @@
 [shortcodes]: /guide/markdown#advanced-provide-components-shortcodes
 [vue-router]: https://next.router.vuejs.org/
 [discussion]: https://github.com/ElMassimo/iles/discussions/6#discussioncomment-1479755
+[unplugin-auto-import]: https://github.com/unplugin/unplugin-auto-import#configuration
+[unplugin-vue-components]: https://github.com/unplugin/unplugin-vue-components#configuration
 
 # Development 💻
 
@@ -25,7 +27,7 @@ In this section, we'll cover the basics to start building an <Iles/> application
 
 <div class="language-tree">
 <pre class="code">
-<code><kbd class="-ml-2"><a href="/config#srcDir">src/</a></kbd>
+<code><kbd class="-ml-2"><a href="#aliases-and-auto-imports">src/</a></kbd>
   ├── <kbd><a href="#components">components/</a></kbd>
   │    ├── ReadingTime.vue
   │    └── Author.vue
@@ -46,21 +48,98 @@ In this section, we'll cover the basics to start building an <Iles/> application
 </pre>
 </div>
 
-By default, <kbd>[srcDir]</kbd> is aliased as `~/` or `@/`. For example:
+## Aliases and Auto-Imports ✨ 
+
+### Aliases
+
+<kbd>srcDir</kbd> is the `src` directory at your project root, and is aliased as `~/` or `@/`. 
+
+For example:
 
 ```ts
-import { useDark } from '~/logic/dark'
+// Named import from `src/utils/index.ts`
+import { camelize } from '~/utils'
 ```
 
 ```vue
+<!-- Asset import of src/assets/logo.svg -->
 <img src="@/assets/logo.svg"/>
 ```
+
+### Auto Imports
+
+Îles auto-imports APIs on-demand, powered by [unplugin-auto-import] in the following file extensions.
+
+- `.vue`, `.md`, `.mdx`, `.ts`, `.tsx`, `.js`, `.jsx`, `.svelte`
+
+The auto-imported APIs includes: 
+
+- `vue` APIs: `ref`, `computed`, `reactive`, etc.
+- `Îles` composables: `usePage`, `useRoute`, `definePageComponent`, `useDocuments`.
+- `@unhead/vue` composables: `useHead`, `useSeoMeta`, `useScript`, etc.
+- Any composables in your `src/composables` folder. 
+
+To illustrate, the imports in the below example are not required.
+
+```vue
+<script setup lang="ts">
+import { computed } from 'vue' // not required
+import { usePage } from 'iles' // not required
+import { useHead } from '@unhead/vue' // not required
+import { isDark, toggleDark } from '@/composables/dark' // not required
+
+const toggleTheme = () => {
+  // Trigger with button click in the template
+  toggleDark() 
+}
+
+const { frontmatter, site, route } = usePage()
+const { title: pageTitle, description } = frontmatter
+const { title: siteTitle, titleSeparator } = site
+const canonicalUrl = new URL(route.path, site.url)
+
+useHead({
+  title: pageTitle
+    ? `${pageTitle} ${titleSeparator} ${siteTitle}`
+    : siteTitle,
+  meta: [
+    {
+      name: 'description',
+      content: description,
+    },
+  ],
+  link: [
+    {
+      rel: 'canonical',
+      href: canonicalUrl.href,
+    },
+  ],
+})
+
+const navs = [
+  { title: 'Home', to: '/' },
+  { title: 'About', to: '/about' },
+]
+const currentPath = computed(() => {
+  return route.path
+})
+
+</script>
+```
+
+> Use the `autoImport` key in `iles.config.ts` to customize [Auto Import][unplugin-auto-import] configurations.
+
+> [Auto Import][unplugin-auto-import] also supports presets and resolvers for popular libraries such as `vue-i18n`, `@vueuse/core`, `pinia`, `primevue`, etc.
 
 ## Components 🧱
 
 Components in the <kbd>src/components</kbd> dir will be auto-imported on-demand, powered by [`unplugin-vue-components`](https://github.com/antfu/unplugin-vue-components).
 
 <Iles/> extends this so that you don't need to import components in [MDX files][mdx].
+
+> Use the `components` key in `iles.config.ts` to customize [Auto Import][unplugin-vue-components] configurations for components.
+
+> [Auto Import][unplugin-vue-components] configurations for components also includes options such as extensions, directories to scan, resolvers etc.
 
 ## Layouts 📐
 
@@ -135,7 +214,7 @@ You may access information about the current page using the `usePage` compositio
 
 ```vue
 <script setup>
-import { usePage } from 'iles'
+import { usePage } from 'iles' // not required
 
 const { frontmatter, meta } = usePage()
 </script>
@@ -195,7 +274,7 @@ It can be accessed as `$site` in component instances, or by using `usePage`.
 
 ```vue
 <script setup>
-import { usePage } from 'iles' // not needed
+import { usePage } from 'iles' // not required
 
 const { site } = usePage()
 </script>
@@ -228,7 +307,6 @@ export default defineApp({
   },
   enhanceIslands ({ app }) {
     // Configure Vue Islands with plugins and other top level runtime logic
-    app.use(pinia)
   },
   head ({ frontmatter, site }) {
     return {
