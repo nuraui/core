@@ -8,6 +8,8 @@
 [SolidJS]: /guide/plugins#vite-plugin-solid
 [Svelte]: /guide/plugins#sveltejsvite-plugin-svelte
 [Suspense]: https://vuejs.org/guide/built-ins/suspense
+[Demo]: https://the-vue-point-with-iles.netlify.app/cat-zone
+[blog repo]: https://github.com/ElMassimo/iles/blob/main/playground/the-vue-point/src/components/CatDisplay.vue
 
 # Hydration Directives <Logo/>
 
@@ -106,7 +108,7 @@ Prefer one of the previous strategies whenever possible.
 
 This automatic suspense handling means you don't need to restructure your components to accomodate suspense logic manually. It is particularly useful when fetching data from external sources, such as databases or headless CMSs, within your island on the client side.
 
-In the following example, the `CatDisplay` îsland is loaded from the parent component and hydrated using the `client:load` directive.
+In the following example from [The Vue Point in îles][demo] ([repo][blog repo]), the `CatDisplay` îsland is loaded from the parent component and hydrated using the `client:load` directive.
 
 ```vue
 <!-- cat-zone.mdx page -->

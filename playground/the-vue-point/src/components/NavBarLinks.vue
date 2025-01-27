@@ -2,6 +2,11 @@
   <div class="text-sm text-gray-500 leading-5">
     <a
       class="hover:text-gray-700"
+      href="/cat-zone"
+    >Cat Zone</a>
+    <span class="mr-1 ml-1">·</span>
+    <a
+      class="hover:text-gray-700"
       href="https://github.com/ElMassimo/iles/tree/main/playground/the-vue-point"
       target="_blank"
       rel="noopener noreferrer"
