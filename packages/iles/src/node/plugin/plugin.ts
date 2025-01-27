@@ -2,6 +2,7 @@ import { promises as fs } from 'fs'
 import { basename, resolve, relative } from 'pathe'
 import type { PluginOption, ResolvedConfig, ViteDevServer } from 'vite'
 import { transformWithEsbuild } from 'vite'
+import { getUserShell } from './html';
 
 import MagicString from 'magic-string'
 
@@ -124,21 +125,37 @@ export default function IslandsPlugins (appConfig: AppConfig): PluginOption[] {
         server = devServer
         return configureMiddleware(appConfig, server, defaultLayoutPath)
       },
+      async transformIndexHtml (html, ctx) {
+        const indexHtmlFilePath = resolve(root, 'index.html')
+        if (ctx.filename === indexHtmlFilePath) {
+          // Validate user provided index.html
+          const {
+            userShell,
+            isValidUserShell,
+            errorMsgUserShell,
+          } = await getUserShell(appConfig, html)
+
+          if (!isValidUserShell) {
+            throw new Error(errorMsgUserShell)
+          }
+          return userShell
+        }
+      }
     },
     {
       // app.ts (optional) - use virtual if not user-provided
       name: 'iles:user-app',
       enforce: 'pre',
-      resolveId(id) {
+      resolveId (id) {
         if (id === USER_APP_ID_VIRTUAL) {
           return USER_APP_ID_VIRTUAL_RESOLVED
         }
         // Prevent import analysis failure if user-app (app.ts) doesn't exist.
         if (id === appPath) return resolve(root, id.slice(1))
       },
-      async load(id) {
+      async load (id) {
         if (id === USER_APP_ID_VIRTUAL_RESOLVED) {
-          const userAppExists = await exists(appPath) 
+          const userAppExists = await exists(appPath)
           return userAppExists ? `import userApp from "${appPath.replace('.ts', '')}"
 export default userApp`  : 'export default {}'
         }
@@ -148,21 +165,21 @@ export default userApp`  : 'export default {}'
       // site.ts (optional) - use virtual if not user-provided
       name: 'iles:site-app',
       enforce: 'pre',
-      resolveId(id) {
+      resolveId (id) {
         if (id === USER_SITE_ID_VIRTUAL) {
           return USER_SITE_ID_VIRTUAL_RESOLVED
         }
         // Prevent import analysis failure if site-app (site.ts) doesn't exist.
         if (id === sitePath) return resolve(root, id.slice(1))
       },
-      async load(id) {
+      async load (id) {
         if (id === USER_SITE_ID_VIRTUAL_RESOLVED) {
-          const userSiteExists = await exists(sitePath) 
+          const userSiteExists = await exists(sitePath)
           return userSiteExists ? `import siteRef from "${sitePath.replace('.ts', '')}"
 export default siteRef`  : 'export default {}'
         }
       },
-    },     
+    },
     {
       name: 'iles:detect-islands-in-vue',
       enforce: 'pre',
@@ -262,7 +279,7 @@ export default siteRef`  : 'export default {}'
             ? 'false'
             : `() => import('${layoutsRoot}/${layout}.vue').then(m => m.default)`)
         }
-        
+
         return s.toString()
       },
     },
