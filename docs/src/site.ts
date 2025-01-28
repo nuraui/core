@@ -64,6 +64,10 @@ const site = {
           link: '/recipes'
         },
         {
+          text: 'A Simple Iles App',
+          link: '/recipes/a-simple-iles-app'
+        },
+        {
           text: 'Vanilla Vue to Îles',
           link: '/recipes/vanilla-vue-to-iles'
         }
