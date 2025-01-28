@@ -17,6 +17,7 @@
 [layout]: /guide/project-structure#layouts
 [components]: /guide/project-structure#components
 [frameworks]: /guide/frameworks
+[server components]: https://nuxt.com/docs/guide/directory-structure/components#server-components
 
 # Hydration Directives <Logo/>
 
@@ -267,7 +268,7 @@ await $fetch('https://api.thecatapi.com/v1/images/search', {
 </template>
 ```
 
-You can still manually handle [Suspense] yourselves if you want to use it's loading / error states, and don't mind create a child component to handle the asynchronous data fetch.
+You can still manually handle [Suspense] yourselves if you want to use it's loading / error states, and don't mind creating a child component to handle the asynchronous data fetch.
 
 To illustrate, the top-level `await` in the above example and the `<img>` tag can be moved into a child component called `<CatOfTheDay>`. Then, the loading / error states of [Suspense] can be implemented like below.
 
