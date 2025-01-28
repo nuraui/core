@@ -35,7 +35,7 @@
 [blog]: https://the-vue-point-with-iles.netlify.app/
 
 [partial hydration]: https://iles-docs.netlify.app/guide/hydration
-[Batteries Included]: https://iles-docs.netlify.app/guide/development#components
+[Batteries Included]: https://iles-docs.netlify.app/guide/project-structure#components
 [Multi-Framework]: https://iles-docs.netlify.app/guide/frameworks
 [markdown]: https://iles-docs.netlify.app/guide/markdown
 [routing]: https://iles-docs.netlify.app/guide/routing

@@ -31,7 +31,7 @@ const site = {
       children: [
         { text: 'Introduction', link: '/guide/introduction' },
         { text: 'Getting Started', link: '/guide' },
-        { text: 'Development', link: '/guide/development' },
+        { text: 'Project Structure', link: '/guide/project-structure' },
         { text: 'Documents', link: '/guide/documents' },
         { text: 'Markdown', link: '/guide/markdown' },
         { text: 'Meta Tags', link: '/guide/meta-tags' },
