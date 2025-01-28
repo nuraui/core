@@ -4,3 +4,4 @@
 /config#your-app https://iles-docs.netlify.app/guide/project-structure#app-2 301
 /guide/development https://iles-docs.netlify.app/guide/project-structure 301
 /guide/meta-tags https://iles-docs.netlify.app/guide/head-and-meta 301
+/guide/hydration https://iles-docs.netlify.app/guide/islands 301

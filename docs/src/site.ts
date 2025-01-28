@@ -36,7 +36,7 @@ const site = {
         { text: 'Markdown', link: '/guide/markdown' },
         { text: 'Head And Meta', link: '/guide/head-and-meta' },
         { text: 'Static Assets', link: '/guide/static-assets' },
-        { text: 'Hydration', link: '/guide/hydration' },
+        { text: 'Islands', link: '/guide/islands' },
         { text: 'Frameworks', link: '/guide/frameworks' },
         { text: 'Routing', link: '/guide/routing' },
         { text: 'Turbo', link: '/guide/turbo' },

@@ -11,9 +11,10 @@ tocLevel: 3
 [Preact]: /guide/plugins#preactpreset-vite
 [SolidJS]: /guide/plugins#vite-plugin-solid
 [Svelte]: /guide/plugins#sveltejsvite-plugin-svelte
-[vanilla JS]: /guide/hydration#vanilla-components
+[vanilla JS]: /guide/islands#vanilla-components
 
-[hydration]: /guide/hydration
+[islands]: /guide/islands
+[hydration strategies]: /guide/islands#hydration-strategies
 [markdown]: /guide/markdown
 [pages]: /guide/project-structure#pages
 [layouts]: /guide/project-structure#components
@@ -27,12 +28,12 @@ tocLevel: 3
 
 # Introduction
 
-<Iles/> is a __static-site generator__ that provides great support for __[partial hydration][hydration]__.
+<Iles/> is a __static-site generator__ that provides great support for __[partial hydration][islands]__.
 
 Use [Vue] and [MDX][markdown] to build your website, while enjoying the smooth development
 experience provided by [Vite.js].
 
-When building for production, use [`client` directives][hydration] to specify which components are interactive, and automatically ship the minimal amount of JS needed.
+When building for production, use [`client` directives][hydration strategies] to specify which components are interactive, and automatically ship the minimal amount of JS needed.
 
 <Tip title="Live Demos">
 This site is [built][docs repo] with <Iles/>, as well as [this port of the Vue.js blog][demo] ([repo][blog repo]).
@@ -40,11 +41,11 @@ This site is [built][docs repo] with <Iles/>, as well as [this port of the Vue.j
 
 ## Features ✨
 
-### 🏝 [Partial Hydration][hydration]
+### 🏝 [Partial Hydration][islands]
   
   Ship JS only for the interactive bits, by default that's zero.
 
-  [Islands][hydration] can be defined using [Vue][vue plugin], [Preact], [SolidJS], [Svelte], or [vanilla JS].
+  [Islands][islands] can be defined using [Vue][vue plugin], [Preact], [SolidJS], [Svelte], or [vanilla JS].
 
 ### ⚡️ Powered by [Vite.js]
 
