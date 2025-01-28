@@ -43,7 +43,7 @@ The following command will generate a minimal `package.json` file with default v
 npm init -y
 ```
 
-The minimal `package.json` shall look like this.
+Now is a good time to open your project folder in a code editor like Visual Studio Code. The minimal `package.json` shall look like this.
 
 ```json
 {
@@ -88,8 +88,6 @@ Add the `iles` executables in your `scripts` section of your `package.json`.
 
 ## 5. Name and Description
 
-It's a good time to open your project folder in a code editor like Visual Studio Code, if you still haven't done it.
-
 Create a new folder `src` in your project root, and a file `site.ts` inside it.
 
 Give your site a `name` and `description` like this:
@@ -105,7 +103,7 @@ export default {
 
 Our site shall have two pages that will share the same `header` and `footer`. So, it's a good idea to have a layout common for all these two pages.
 
-Create a new folder `src/layouts`, and a file `default.vue` inside it. Here is a simple default layout with navigation in the `header` and an empty footer.
+Create a new folder `src/layouts`, and a file `default.vue` inside it. Here is a simple default layout with navigation in the `header` and an empty `footer`.
 
 > Take a note of the `slot` tag into which various pages will be `slotted-in` with a common `header` and `footer`, above and below it.
 
