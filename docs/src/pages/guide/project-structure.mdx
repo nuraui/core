@@ -10,7 +10,7 @@
 [siteUrl]: /config#siteurl
 [useDocuments]: /guide/documents
 [frameworks]: /guide/frameworks
-[head and meta tags]: /guide/meta-tags
+[head and meta]: /guide/head-and-meta
 [discussion]: https://github.com/ElMassimo/iles/discussions/6#discussioncomment-1479755
 [`@unhead/vue`]: https://unhead.unjs.io/setup/vue/installation
 [shortcodes]: /guide/markdown#advanced-provide-components-shortcodes
@@ -284,7 +284,7 @@ It's also displayed in the page information in _Islands_ devtools.
 
 > Adding `src/site.ts` to your project is optional.
 > 
-> Alternatively, you can use composables from [`@unhead/vue`] to manage the [head and meta tags] of your page.
+> Alternatively, you can use composables from [`@unhead/vue`] to manage the [head and meta] tags of your page.
 
 ## App 📱
 
@@ -292,7 +292,7 @@ It's also displayed in the page information in _Islands_ devtools.
 
 `src/app.ts` can be used to provide additional configurations with the `defineApp` helper, allowing you to customize:
 - using `enhanceApp`, the development and build logic of this "outer" shell.
-- your site's head and meta tags, scroll behavior, etc.
+- your site's [head and meta] tags, scroll behavior, etc.
 
 > This "outer" shell is loaded only during development and is not included in your built site.
 >
@@ -372,7 +372,7 @@ export default defineApp({
 
 - **Type:** `HeadObject | (context: AppContext) => HeadObject`
 
-Set the page title, meta tags, additional CSS, or scripts using [`@unhead/vue`].
+Set the [head and meta] tags, additional CSS, or scripts using [`@unhead/vue`].
 
 ### `router`
 
