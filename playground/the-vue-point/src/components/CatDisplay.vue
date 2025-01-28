@@ -10,7 +10,10 @@ const error = ref(false)
 await $fetch('https://api.thecatapi.com/v1/images/search', {
   async onResponse({request, response, options}) {
     data.value = response._data[0]
-    isLoading.value = false        
+    setTimeout(() => {
+      // Using a delay to simulate a slow network to show loading... status
+      isLoading.value = false
+    }, 1000)
   },
   async onResponseError({request, response, options}) {
     error.value = true

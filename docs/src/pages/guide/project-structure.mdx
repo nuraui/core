@@ -18,6 +18,8 @@
 [discussion]: https://github.com/ElMassimo/iles/discussions/6#discussioncomment-1479755
 [unplugin-auto-import]: https://github.com/unplugin/unplugin-auto-import#configuration
 [unplugin-vue-components]: https://github.com/unplugin/unplugin-vue-components#configuration
+[autoImport key]: /guide/modules#unplugin-auto-import
+[components key]: /guide/modules#unplugin-vue-components
 
 # Project Structure 💻
 
@@ -127,23 +129,23 @@ const currentPath = computed(() => {
 </script>
 ```
 
-> Use the `autoImport` key in `iles.config.ts` to customize [Auto Import][unplugin-auto-import] configurations.
+> Use the [`autoImport`][autoImport key] key in `iles.config.ts` to customize [Auto Import][unplugin-auto-import] configurations.
 
 > [Auto Import][unplugin-auto-import] also supports presets and resolvers for popular libraries such as `vue-i18n`, `@vueuse/core`, `pinia`, `primevue`, etc.
 
 ## Components 🧱
 
-Components in the <kbd>src/components</kbd> dir will be auto-imported on-demand, powered by [`unplugin-vue-components`](https://github.com/antfu/unplugin-vue-components).
+Components in the <kbd>src/components</kbd> directory will be auto-imported on-demand, powered by [`unplugin-vue-components`](https://github.com/antfu/unplugin-vue-components).
 
-<Iles/> extends this so that you don't need to import components in [MDX files][mdx].
+Îles extends this so that you don't need to import components in [MDX files][mdx].
 
-> Use the `components` key in `iles.config.ts` to customize [Auto Import][unplugin-vue-components] configurations for components.
+> Use the [`components`][components key] key in `iles.config.ts` to customize [Auto Import][unplugin-vue-components] configurations for components.
 
 > [Auto Import][unplugin-vue-components] configurations for components also includes options such as extensions, directories to scan, resolvers etc.
 
 ## Layouts 📐
 
-Components in the <kbd>src/layouts</kbd> dir will be available as layouts, and they should provide a default `<slot/>`. 
+Components in the <kbd>src/layouts</kbd> directory will be available as layouts, and they should provide a default `<slot/>`. 
 
 Pages may specify a layout using the `layout` property in frontmatter:
 
@@ -166,12 +168,12 @@ Layouts and Vue pages can also specify a parent layout using a `layout` attribut
 > Pages may opt-out by specifying `layout: false`
 
 <Tip warn>
-Layout files must be lowercase, as in `post.vue` or `default.vue`.
+Layout files must be in lowercase, as in `post.vue` or `default.vue`.
 </Tip>
 
 ## Pages 🛣
 
-[Routes will be auto-generated][routing] for files in the <kbd>src/pages</kbd> dir with the same file structure.
+[Routes will be auto-generated][routing] for files in the <kbd>src/pages</kbd> directory with the same file structure.
 
 Pages can be Vue components or [MDX files][mdx], and may specify frontmatter and route metadata.
 
@@ -288,6 +290,7 @@ It's also displayed in the page information in _Islands_ devtools.
 
 `src/app.ts` can be used to provide additional configurations with the `defineApp` helper, allowing you to customize:
 - using `enhanceApp`, the development and build logic of this "outer" shell.
+- using `enhanceIslands`, add Vue plugins and top level runtime logic in your Vue Islands.
 - your site's [head and meta] tags, scroll behavior, etc.
 
 > This "outer" shell is loaded only during development and is not included in your built site.

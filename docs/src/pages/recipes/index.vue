@@ -12,7 +12,7 @@ const recipes = getPosts()
 <template layout="default"> 
   <section>
     <h1>Recipes</h1>
-    <p>Îles recipes are concise, focused guides covering various use cases with step-by-step instructions. They offer a great way to learn Îles while enhancing your project with new features or functionality through clear, practical examples.</p>
+    <p><Iles/> recipes are concise, focused guides covering various use cases with step-by-step instructions. They offer a great way to learn Îles while enhancing your project with new features or functionality through clear, practical examples.</p>
     <div class="gap-8 grid grid-cols-1 lg:grid-cols-2 max-w-7xl mx-auto">
       <article v-for="recipe in recipes" :key="recipe.href" class="dark:bg-[var(--bg-highlight)] overflow-hidden rounded-lg shadow-lg">
         <a class="!no-underline hover:!text-[var(--fc-intense)] active:!text-[var(--fc-intense)]" :href="recipe.href">

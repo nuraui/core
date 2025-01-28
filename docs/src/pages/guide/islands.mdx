@@ -11,7 +11,6 @@
 [Demo]: https://the-vue-point-with-iles.netlify.app/cat-zone
 [blog repo]: https://github.com/ElMassimo/iles/blob/main/playground/the-vue-point/src/components/CatDisplay.vue
 
-[previous section]: /guide/islands
 [strategies]: /guide/islands#clientload
 [strategy]: /guide/islands#clientload
 [layout]: /guide/project-structure#layouts
@@ -19,7 +18,7 @@
 [frameworks]: /guide/frameworks
 [server components]: https://nuxt.com/docs/guide/directory-structure/components#server-components
 
-# Hydration Directives <Logo/>
+# Islands and Hydration <Logo/>
 
 <Iles/> uses the Islands Architecture. It creates fast, static web pages with only small interactive parts, like a carousel that requires JavaScript.
 
@@ -35,7 +34,7 @@
 
 <Iles/> follow an architecture where <kbd>dynamic îslands</kbd> are embedded within a static page. Hydration strategies are mandatory to make components interactive.
 
-<NuxtLogo/> Nuxt, on the contrary, follows an architecture where <kbd>static îslands</kbd> are embedded within a dynamic app. Marking components as [server components] are optional.
+<NuxtLogo/> Nuxt, on the contrary, follows an architecture where <kbd>static îslands</kbd> could be part of your dynamic app. Marking components as [server components] is optional.
 
 > Learn more about this architectural difference in Daniel Roe's blog post [here](https://roe.dev/blog/nuxt-server-components).
 
@@ -164,7 +163,7 @@ document.getElementById('sidebar').classList.toggle('live') // always works
 
 ### Execution Strategies <Logo/>
 
-Other [strategies] that we saw in the [previous section] are supported,
+Other [strategies] that we saw in the previous section are supported,
 but you must export `onLoad`.
 
 This function will be called when the condition for the selected strategy is met—when the element becomes visible if using `client:visible`, when the media query matches if using `client:media`, etc.
@@ -186,7 +185,7 @@ choose where to place them by rendering them as islands.
 
 ```vue
 <script setup lang="ts">
-import GalleryPreloader from '~/logic/imagePreloader' // .ts
+import GalleryPreloader from '~/composables/imagePreloader' // .ts
 </script>
 
 <template>
@@ -229,7 +228,7 @@ If your app already [uses a framework][frameworks] in some of the islands, then 
 
 This automatic suspense handling means you don't need to restructure your components to accomodate suspense logic manually. It is particularly useful when fetching data from external sources, such as databases or headless CMSs, within your island on the client side.
 
-In the following example from [The Vue Point in îles][demo] ([repo][blog repo]), the `CatDisplay` îsland is loaded from the parent component and hydrated using the `client:load` directive.
+In the following example from [The Vue Point in îles][demo] ([repo][blog repo]), the `CatDisplay` îsland is loaded from the `cat-zone` page and hydrated using the `client:load` directive.
 
 ```vue
 <!-- cat-zone.mdx page -->
@@ -270,7 +269,7 @@ await $fetch('https://api.thecatapi.com/v1/images/search', {
 
 You can still manually handle [Suspense] yourselves if you want to use it's loading / error states, and don't mind creating a child component to handle the asynchronous data fetch.
 
-To illustrate, the top-level `await` in the above example and the `<img>` tag can be moved into a child component called `<CatOfTheDay>`. Then, the loading / error states of [Suspense] can be implemented like below.
+To illustrate, the top-level `await` in the above example and the `<img>` tag can be moved into a child component called `CatOfTheDay`. Then, the loading / error states of [Suspense] can be implemented like below.
 
 ```vue
 <!-- cat-zone.mdx page -->
