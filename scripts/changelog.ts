@@ -18,7 +18,7 @@ const run = async (bin, args, opts = {}) => await execa(bin, args, { stdio: 'inh
 /**
  * @param {string} paths
  */
-const resolve = paths => path.resolve(__dirname, `../packages/${name}/${paths}`)
+const resolve = paths => path.resolve(__dirname, `../packages/iles/${paths}`)
 
 const tagPrefix = name === 'nurajs' ? 'v' : `${name}@`
 
