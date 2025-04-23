@@ -14,7 +14,12 @@ If you are looking for configuration options, visit the [configuration reference
 import stackblitzSrc from '/images/stackblitz.svg'
 
 <p>
-  <a href="https://stackblitz.com/fork/iles?file=src%2Fcomponents%2FWelcome.vue" rel="noreferrer" target="_blank"><img src={stackblitzSrc} alt="Try it on StackBlitz"/></a>
+  <a
+    href="https://stackblitz.com/fork/iles?file=src%2Fcomponents%2FWelcome.vue"
+    rel="noreferrer"
+    target="_blank">
+    <img src={stackblitzSrc} alt="Try it on StackBlitz" />
+  </a>
 </p>
 
 ## Installation 💿
@@ -25,29 +30,24 @@ Run the following command to create a new îles project using the [starter] temp
 npm create -D iles@latest # or pnpm, yarn, bun
 ```
 
-## Add îles to an Existing Project 💙 
+## Add îles to an Existing Project 💙
 
 Add îles to your existing Vite-powered project using the following command:
 
 ```bash
-npm add -D iles@latest # or pnpm, yarn, bun
+npm add -D nurajs@latest # or pnpm, yarn, bun
 ```
 
 îles serves pages from the `src/pages` folder, so ensure your pages are located there. They must be in one of the supported formats: `.vue`, `.md`, or `.mdx`. For example,
 
 <div class="language-tree">
-<pre class="code">
-<code>
-<kbd class="-ml-2">src/</kbd>
-  ├── <kbd>pages/</kbd>
-  │    ├── index.vue
-  │    └── about.md 
-  │    └── posts/
-  │         ├── intro.mdx
-  │         └── our-story.mdx
-  
-</code>
-</pre>
+  <pre class="code">
+    <code>
+      <kbd class="-ml-2">src/</kbd>
+      ├── <kbd>pages/</kbd>│ ├── index.vue │ └── about.md │ └── posts/ │ ├──
+      intro.mdx │ └── our-story.mdx
+    </code>
+  </pre>
 </div>
 
 Now, follow the next [usage](#usage) section. Also explore the [recipes] page to learn through examples.
@@ -99,4 +99,4 @@ npm run preview # or pnpm, yarn, bun
 npm run now # or pnpm, yarn, bun
 ```
 
-<Contact/>
+<Contact />
