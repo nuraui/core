@@ -77,7 +77,7 @@ function step(msg) {
  * @param {string} paths
  */
 function resolve(paths) {
-  return path.resolve(__dirname, `../packages/${name}/${paths}`)
+  return path.resolve(__dirname, `../packages/iles/${paths}`)
 }
 
 function jsPackage() {
