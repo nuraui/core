@@ -26,12 +26,12 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/ElMassimo/iles"
+    "url": "https://github.com/nuraui/nurajs"
   },
-  "homepage": "https://github.com/ElMassimo/iles",
-  "bugs": "https://github.com/ElMassimo/iles/issues",
+  "homepage": "https://github.com/nuraui/nurajs",
+  "bugs": "https://github.com/nuraui/nurajs/issues",
   "dependencies": {
-    "vite-plugin-pwa": "^0.20.5"
+    "vite-plugin-pwa": "^0.21.1"
   },
   "devDependencies": {
     "iles": "workspace:*"

@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://iles-docs.netlify.app">
-    <img src="https://github.com/ElMassimo/iles/blob/main/docs/images/banner.png"/>
+  <a href="https://nuraui.com">
+    <img src="https://github.com/nuraui/nurajs/blob/main/docs/images/banner.png"/>
   </a>
 </p>
 
@@ -18,11 +18,11 @@
 </table>
 </p>
 
-[îles]: https://github.com/ElMassimo/iles
-[docs]: https://iles-docs.netlify.app
-[pages]: https://iles-docs.netlify.app/guide/development#pages
+[îles]: https://github.com/nuraui/nurajs
+[docs]: https://nuraui.com
+[pages]: https://nuraui.com/guide/project-structure#pages
 [frontmatter]: /guide/markdown#frontmatter-and-meta
-[routing]: https://iles-docs.netlify.app/guide/routing
+[routing]: https://nuraui.com/guide/routing
 [vite-plugin-pages]: https://github.com/hannoeru/vite-plugin-pages
 
 An [îles] module that provides support for [pages], inspired by [vite-plugin-pages].

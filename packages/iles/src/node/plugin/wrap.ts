@@ -15,7 +15,7 @@ interface SfcRootNode extends RootNode {
 
 export const unresolvedIslandKey = '__viteIslandComponent'
 
-export async function wrapLayout (code: string, filename: string) {
+export async function wrapLayout(code: string, filename: string) {
   const { descriptor: { template }, errors } = parse(code, { filename })
   if (errors.length > 0 || !template || !isString(template.attrs.layout)) return
 
@@ -38,7 +38,7 @@ export async function wrapLayout (code: string, filename: string) {
 
 const scriptClientRE = /<script\b([^>]*\bclient:[^>]*)>([^]*?)<\/script>/
 
-export async function wrapIslandsInSFC (config: AppConfig, code: string, filename: string) {
+export async function wrapIslandsInSFC(config: AppConfig, code: string, filename: string) {
   code = code.replace(scriptClientRE, (_, attrs, content) =>
     `<script-client${attrs}>${content}</script-client>`)
 
@@ -48,7 +48,7 @@ export async function wrapIslandsInSFC (config: AppConfig, code: string, filenam
   if (errors.length > 0) return
 
   if ((scriptClient && 'setup' in scriptClient.attrs) || (scriptSetup && Object.keys(scriptSetup.attrs).some(attr => attr.startsWith('client:'))))
-    throw new Error('Incorrect usage of hydration strategy in script setup.\nSee https://iles-docs.netlify.app/guide/client-scripts#client-script-block')
+    throw new Error('Incorrect usage of hydration strategy in script setup.\nSee https://nuraui.com/guide/islands#client-script-block')
 
   if (!template?.ast?.children.length) {
     if (scriptClient) { throw new Error(`Vue components with <script client:...> must define a template containing at least one tag. No valid template found in ${filename}`) }
@@ -79,7 +79,7 @@ export async function wrapIslandsInSFC (config: AppConfig, code: string, filenam
 
   return { code: s.toString(), map: s.generateMap({ hires: true }) }
 
-  async function resolveComponentImport (strategy: string, tagName: string): Promise<ComponentInfo> {
+  async function resolveComponentImport(strategy: string, tagName: string): Promise<ComponentInfo> {
     debug.detect(`<${tagName} ${strategy}>`)
     if (imports[tagName]) return await resolveImportPath(config, imports[tagName], filename)
     const info = await resolveComponent(components, tagName, filename, componentCounter++)
@@ -87,7 +87,7 @@ export async function wrapIslandsInSFC (config: AppConfig, code: string, filenam
     return info
   }
 
-  function injectComponentImport (info: ComponentInfo) {
+  function injectComponentImport(info: ComponentInfo) {
     if (injectionOffset === undefined) {
       const opening = `<script setup lang="${script?.attrs?.lang || 'ts'}">`
       s.prepend(opening)
@@ -97,7 +97,7 @@ export async function wrapIslandsInSFC (config: AppConfig, code: string, filenam
   }
 }
 
-async function visitSFCNode (node: ElementNode, s: MagicString, resolveComponentImport: (strategy: string, tag: string) => Promise<ComponentInfo>) {
+async function visitSFCNode(node: ElementNode, s: MagicString, resolveComponentImport: (strategy: string, tag: string) => Promise<ComponentInfo>) {
   const strategy = 'props' in node
     && node.props.find(prop => prop.name.startsWith('client:'))?.name
 
@@ -127,18 +127,18 @@ async function visitSFCNode (node: ElementNode, s: MagicString, resolveComponent
   }
 }
 
-export async function resolveComponent (components: ComponentsApi, tag: string, filename: string, counter: number): Promise<ComponentInfo> {
+export async function resolveComponent(components: ComponentsApi, tag: string, filename: string, counter: number): Promise<ComponentInfo> {
   const info = await components.findComponent(pascalCase(tag), filename)
   if (!info) throw new Error(`Could not resolve ${tag} in ${filename}. Make sure to import it explicitly, or add a component resolver.`)
   return { name: 'default', ...info, as: `__ile_components_${counter}` }
 }
 
-export async function resolveImportPath (config: AppConfig, info: ComponentInfo, importer: string) {
+export async function resolveImportPath(config: AppConfig, info: ComponentInfo, importer: string) {
   info.from = (await config.resolvePath(info.from, importer)) || info.from
   return info
 }
 
-async function injectClientScript (node: SfcRootNode, s: MagicString, filename: string, index: number, block: SFCBlock) {
+async function injectClientScript(node: SfcRootNode, s: MagicString, filename: string, index: number, block: SFCBlock) {
   const { attrs, content, loc: { end } } = block
   const { lang = 'ts', ...props } = attrs
 

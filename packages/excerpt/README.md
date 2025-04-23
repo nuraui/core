@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://iles-docs.netlify.app">
-    <img src="https://github.com/ElMassimo/iles/blob/main/docs/images/banner.png"/>
+  <a href="https://nuraui.com">
+    <img src="https://github.com/nuraui/nurajs/blob/main/docs/images/banner.png"/>
   </a>
 </p>
 
@@ -18,13 +18,13 @@
 </table>
 </p>
 
-[îles]: https://github.com/ElMassimo/iles
-[docs]: https://iles-docs.netlify.app
-[markdown]: https://iles-docs.netlify.app/guide/markdown
+[îles]: https://github.com/nuraui/nurajs
+[docs]: https://nuraui.com
+[markdown]: https://nuraui.com/guide/markdown
 
-[pageData]: https://iles-docs.netlify.app/guide/development#using-page-data
-[SEO tags]: https://iles-docs.netlify.app/guide/meta-tags
-[RSS feeds]: https://iles-docs.netlify.app/guide/rss
+[pageData]: https://nuraui.com/guide/project-structure#using-page-data
+[SEO tags]: https://nuraui.com/guide/head-and-meta
+[RSS feeds]: https://nuraui.com/guide/rss
 
 An [îles] module to extract an excerpt from [MDX documents][markdown]:
 

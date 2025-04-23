@@ -32,7 +32,7 @@ const presets = {
 }
 
 export default defineConfig({
-  siteUrl: 'https://the-vue-point-with-iles.netlify.app/',
+  siteUrl: 'https://the-vue-point-with-nuraui.com/',
   turbo: true,
   jsx: 'solid',
   prettyUrls: false,
@@ -47,16 +47,22 @@ export default defineConfig({
   ],
   // Example: Configure all posts to use a different layout without having to
   // add `layout: 'post'` in every file.
-  extendFrontmatter (frontmatter, filename) {
+  extendFrontmatter(frontmatter, filename) {
     if (filename.includes('/posts/'))
       frontmatter.layout ||= 'post'
   },
   markdown: {
-    withImageSrc (src) {
+    withImageSrc(src) {
       if (!src.includes('?'))
         return `${src}?preset=post`
     },
     remarkPlugins: ['remark-gfm'],
+  },
+  autoImport: {
+    dirs: [
+      // 'src/composables', // already added by Îles
+      'src/logic', // auto-import composables from `src/logic` folder
+    ],
   },
   vite: {
     plugins: [

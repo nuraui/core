@@ -1,2 +1,8 @@
-/config/plugins https://iles-docs.netlify.app/guide/plugins 301
-/guide/comparisons https://iles-docs.netlify.app/faqs 301
+/guide/comparisons https://nuraui.com/faqs 301
+/guide/client-scripts https://nuraui.com/guide/hydration#client-script-block 301
+/config/plugins https://nuraui.com/guide/modules 301
+/config#your-app https://nuraui.com/guide/project-structure#app-2 301
+/guide/development https://nuraui.com/guide/project-structure 301
+/guide/meta-tags https://nuraui.com/guide/head-and-meta 301
+/guide/hydration https://nuraui.com/guide/islands 301
+/guide/plugins https://nuraui.com/guide/modules 301

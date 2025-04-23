@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://iles-docs.netlify.app">
-    <img src="https://github.com/ElMassimo/iles/blob/main/docs/images/banner.png"/>
+  <a href="https://nuraui.com">
+    <img src="https://github.com/nuraui/nurajs/blob/main/docs/images/banner.png"/>
   </a>
 </p>
 
@@ -18,10 +18,10 @@
 </table>
 </p>
 
-[îles]: https://github.com/ElMassimo/iles
-[routing]: https://iles-docs.netlify.app/guide/routing
+[îles]: https://github.com/nuraui/nurajs
+[routing]: https://nuraui.com/guide/routing
 [feed]: https://github.com/jpmonette/feed
-[rss]: https://iles-docs.netlify.app/guide/rss
+[rss]: https://nuraui.com/guide/rss
 
 An [îles] module to generate feeds for your site:
 

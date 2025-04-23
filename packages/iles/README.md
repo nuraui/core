@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://iles-docs.netlify.app">
-    <img src="https://github.com/ElMassimo/iles/blob/main/docs/images/banner.png"/>
+  <a href="https://nuraui.com">
+    <img src="https://github.com/nuraui/nurajs/blob/main/docs/images/banner.png"/>
   </a>
 </p>
 
@@ -18,8 +18,8 @@
 </table>
 </p>
 
-[îles]: https://github.com/ElMassimo/iles
-[cli]: https://iles-docs.netlify.app/guide#usage
-[client library]: https://iles-docs.netlify.app/guide/development#using-page-data
+[îles]: https://github.com/nuraui/nurajs
+[cli]: https://nuraui.com/guide#usage
+[client library]: https://nuraui.com/guide/project-structure#using-page-data
 
 The main [îles] package, which provides a [cli] and the [client library].

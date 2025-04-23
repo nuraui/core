@@ -7,9 +7,28 @@ dist/
 *.tgz
 .pnpm-debug.log
 packages/.pnpm-debug.log
+auto-imports.d.ts
 components.d.ts
 composables.d.ts
 
 packages/iles/tests/renderAsync.ts
 
 .idea/
+
+#.gitignore, .eslintignore, .prettierignore
+    
+# Pinegrow temp folders
+_pg* 
+
+## optional
+# pinegrow.json
+
+
+## optional
+## Uncomment the below as per your needs
+## add any d.ts files that are auto-generated, for eg,
+# auto-imports.d.ts
+# components.d.ts
+# composables.d.ts
+## rollup visualizer
+stats.html

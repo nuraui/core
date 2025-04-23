@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://iles-docs.netlify.app">
-    <img src="https://github.com/ElMassimo/iles/blob/main/docs/images/banner.png"/>
+  <a href="https://nuraui.com">
+    <img src="https://github.com/nuraui/nurajs/blob/main/docs/images/banner.png"/>
   </a>
 </p>
 
@@ -18,11 +18,11 @@
 </table>
 </p>
 
-[îles]: https://github.com/ElMassimo/iles
-[docs]: https://iles-docs.netlify.app
+[îles]: https://github.com/nuraui/nurajs
+[docs]: https://nuraui.com
 [MDX]: https://github.com/mdx-js/mdx
-[frontmatter]: https://iles-docs.netlify.app/guide/markdown#frontmatter-and-meta
-[mdx documents]: https://iles-docs.netlify.app/guide/markdown
+[frontmatter]: https://nuraui.com/guide/markdown#frontmatter-and-meta
+[mdx documents]: https://nuraui.com/guide/markdown
 [resolveComponent]: https://v3.vuejs.org/api/global-api.html#resolvecomponent
 [unplugin-vue-components]: https://github.com/antfu/unplugin-vue-components
 

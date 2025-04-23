@@ -12,23 +12,22 @@
     "dist",
     "src/Picture.vue"
   ],
-  "types": "dist/images.d.ts",
   "exports": {
     ".": {
+      "types": "./dist/images.d.ts",
       "import": "./dist/images.js",
-      "require": "./dist/images.cjs",
-      "types": "./dist/images.d.ts"
+      "require": "./src/images.cjs"
     },
     "./package.json": "./package.json"
   },
-  "funding": "https://github.com/sponsors/ElMassimo",
+  "funding": "https://github.com/sponsors/nuraui",
   "author": "Máximo Mussini <maximomussini@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ElMassimo/iles"
+    "url": "https://github.com/nuraui/nurajs"
   },
-  "homepage": "https://github.com/ElMassimo/iles",
-  "bugs": "https://github.com/ElMassimo/iles/issues",
+  "homepage": "https://github.com/nuraui/nurajs",
+  "bugs": "https://github.com/nuraui/nurajs/issues",
   "dependencies": {
     "pathe": "^1.1.2",
     "vite-plugin-image-presets": "^0.3.4"
