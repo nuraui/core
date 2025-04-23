@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://iles-docs.netlify.app">
-    <img src="https://github.com/ElMassimo/iles/blob/main/docs/images/banner.png"/>
+  <a href="https://nuraui.com">
+    <img src="https://github.com/nuraui/nurajs/blob/main/docs/images/banner.png"/>
   </a>
 </p>
 
@@ -18,6 +18,6 @@
 </table>
 </p>
 
-[îles]: https://github.com/ElMassimo/iles
+[îles]: https://github.com/nuraui/nurajs
 
 Internal utility for [îles] to hydrate Vue, Svelte, Preact, and Solid components.

@@ -1,18 +1,18 @@
-const twitterHandle = 'ilesjs'
+const twitterHandle = 'nuraui'
 
 const site = {
   title: 'îles',
   description: 'The Joyful Site Generator',
   year: new Date().getFullYear(),
 
-  url: 'https://iles-docs.netlify.app',
-  canonical: 'iles-docs.netlify.app',
+  url: 'https://nuraui.com',
+  canonical: 'nuraui.com',
 
   tags: ['îles', 'iles', 'vuejs', 'vitejs', 'ssg', 'open source', 'partial hydration', 'islands of interactivity'],
 
   author: 'Máximo Mussini',
   authorUrl: 'https://maximomussini.com',
-  github: 'https://github.com/ElMassimo/iles',
+  github: 'https://github.com/nuraui/nurajs',
   twitterHandle,
   authorHandle: 'MaximoMussini',
   twitter: `https://twitter.com/${twitterHandle}`,
@@ -72,8 +72,8 @@ const site = {
           link: '/recipes/vanilla-vue-to-iles'
         }
       ],
-    },    
-    
+    },
+
   ],
 }
 

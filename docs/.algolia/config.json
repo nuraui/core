@@ -2,20 +2,26 @@
   "index_name": "iles",
   "start_urls": [
     {
-      "url": "https://iles-docs.netlify.app/config",
+      "url": "https://nuraui.com/config",
       "selectors_key": "config",
-      "tags": ["config"],
+      "tags": [
+        "config"
+      ],
       "page_rank": 5
     },
     {
-      "url": "https://iles-docs.netlify.app/faqs",
+      "url": "https://nuraui.com/faqs",
       "selectors_key": "faqs",
-      "tags": ["faqs"],
+      "tags": [
+        "faqs"
+      ],
       "page_rank": 1
     },
     {
-      "url": "https://iles-docs.netlify.app/guide",
-      "tags": ["guide"],
+      "url": "https://nuraui.com/guide",
+      "tags": [
+        "guide"
+      ],
       "page_rank": 4
     }
   ],

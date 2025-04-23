@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://iles-docs.netlify.app">
-    <img src="https://github.com/ElMassimo/iles/blob/main/docs/images/banner.png"/>
+  <a href="https://nuraui.com">
+    <img src="https://github.com/nuraui/nurajs/blob/main/docs/images/banner.png"/>
   </a>
 </p>
 
@@ -18,8 +18,8 @@
 </table>
 </p>
 
-[îles]: https://github.com/ElMassimo/iles
-[pwa]: https://iles-docs.netlify.app/guide/pwa
+[îles]: https://github.com/nuraui/nurajs
+[pwa]: https://nuraui.com/guide/pwa
 [vite-plugin-pwa]: https://github.com/antfu/vite-plugin-pwa
 
 An [îles] module to add and configure [vite-plugin-pwa], created by @userquin.

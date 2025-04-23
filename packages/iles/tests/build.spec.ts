@@ -73,31 +73,31 @@ describe('building docs site', () => {
   })
 })
 
-async function expectFileContent (path: string, transform?: (val: string) => string) {
+async function expectFileContent(path: string, transform?: (val: string) => string) {
   let content = await fs.readFile(`${vuePoint}/dist/${path}`, 'utf-8')
   content = content.replace(/\/assets\/([^.]+)(?:[.-])\w+\.(\w+)\b/g, '/assets/$1.$2')
   return expect(transform ? transform(content) : content)
 }
 
-async function assertSnapshot (path: string, transform?: (val: string) => string) {
+async function assertSnapshot(path: string, transform?: (val: string) => string) {
   const expectContent = await expectFileContent(path, transform)
   expectContent.toMatchSnapshot()
   return expectContent
 }
 
-async function assertContent (path: string, content: string) {
+async function assertContent(path: string, content: string) {
   const expectContent = await expectFileContent(path)
   expectContent.toContain(content)
 }
 
-async function assertHTML (path: string, { title }: any = {}) {
+async function assertHTML(path: string, { title }: any = {}) {
   const expectContent = await expectFileContent(path)
   expectContent.toMatchSnapshot()
   expectContent.toContain(`<title>${`${title ? `${title.replaceAll('"', '&quot;')} · ` : ''}The Vue Point`}</title>`)
   expectContent.toContain('<meta charset="UTF-8">')
   expectContent.toContain('<meta name="description" content="Updates, tips & opinions from the maintainers of Vue.js.">')
-  expectContent.toContain('<link rel="sitemap" href="https://the-vue-point-with-iles.netlify.app/sitemap.xml">')
-  expectContent.toContain(`<meta property="og:url" content="https://the-vue-point-with-iles.netlify.app/${path.replace('index.html', '')}">`)
+  expectContent.toContain('<link rel="sitemap" href="https://the-vue-point-with-nuraui.com/sitemap.xml">')
+  expectContent.toContain(`<meta property="og:url" content="https://the-vue-point-with-nuraui.com/${path.replace('index.html', '')}">`)
   expectContent.toContain('<link rel="stylesheet" href="/assets/Island-.css">')
   expectContent.toContain('<link rel="stylesheet" href="/assets/user-app.css">')
 
@@ -105,7 +105,7 @@ async function assertHTML (path: string, { title }: any = {}) {
     + '<div class="text-sm text-gray-500 leading-5">'
     + '<a class="hover:text-gray-700" href="/cat-zone">Cat Zone</a>'
     + '<span class="mr-1 ml-1">·</span>'
-    + '<a class="hover:text-gray-700" href="https://github.com/ElMassimo/iles/tree/main/playground/the-vue-point" target="_blank" rel="noopener noreferrer">'
+    + '<a class="hover:text-gray-700" href="https://github.com/nuraui/nurajs/tree/main/playground/the-vue-point" target="_blank" rel="noopener noreferrer">'
     + '<span class="hidden sm:inline">GitHub</span> Source</a>')
   if (path.includes('/posts/'))
     expectContent.toContain('<ile-root id="ile-2"><a class="link" href="/">← <!--#-->Back to the blog<!--/--></a></ile-root>')

@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://iles-docs.netlify.app">
-    <img src="https://github.com/ElMassimo/iles/blob/main/docs/images/banner.png"/>
+  <a href="https://nuraui.com">
+    <img src="https://github.com/nuraui/nurajs/blob/main/docs/images/banner.png"/>
   </a>
 </p>
 
@@ -14,14 +14,14 @@
   <a href='https://www.npmjs.com/package/iles'>
     <img src='https://img.shields.io/npm/v/iles?color=222&style=flat-square'>
   </a>
-  <a href="https://github.com/ElMassimo/vite_ruby/blob/master/LICENSE.txt">
+  <a href="https://github.com/nuraui/nurajs/blob/main/LICENSE">
     <img alt="License" src="https://img.shields.io/badge/license-MIT-428F7E.svg"/>
   </a>
 </p>
 
 <hr/>
 
-[demo]: https://the-vue-point-with-iles.netlify.app/
+[demo]: https://the-vue-point-with-nuraui.com/
 [Vue.js official blog]: http://blog.vuejs.org/
 
 # The Vue Point - with îles

@@ -45,17 +45,17 @@ let props = {} as PageData['props']
 let site = {} as PageData['site']
 
 const devtools = {
-  updateIslandsInspector () {
+  updateIslandsInspector() {
     devtoolsApi?.sendInspectorTree(INSPECTOR_ID)
   },
 
-  addIslandToDevtools (island: any) {
+  addIslandToDevtools(island: any) {
     islandsById[island.id] = island
     devtools.updateIslandsInspector()
     devtoolsApi?.selectInspectorNode(INSPECTOR_ID, route?.path)
   },
 
-  removeIslandFromDevtools (island: any) {
+  removeIslandFromDevtools(island: any) {
     delete islandsById[island.id]
 
     // NOTE: Vue could unmount ile-1 before ile-2, so check for unused ids.
@@ -65,11 +65,11 @@ const devtools = {
     devtools.updateIslandsInspector()
   },
 
-  nextIslandId () {
+  nextIslandId() {
     return `ile-${++lastUsedIslandId}`
   },
 
-  onHydration ({ id, ...event }: any) {
+  onHydration({ id, ...event }: any) {
     const time = Date.now()
     const island: any = islandsById[id]
     if (!island) return
@@ -90,9 +90,9 @@ const devtools = {
   },
 }
 
-;(window as any).__ILE_DEVTOOLS__ = devtools
+  ; (window as any).__ILE_DEVTOOLS__ = devtools
 
-export function installDevtools (app: App, config: AppClientConfig) {
+export function installDevtools(app: App, config: AppClientConfig) {
   appConfig = config
   const pageData = usePage(app)
   route = pageData.route
@@ -105,9 +105,9 @@ export function installDevtools (app: App, config: AppClientConfig) {
   setupDevtoolsPlugin({
     id: 'com.maximomussini.iles',
     label: ISLAND_TYPE,
-    logo: 'https://iles-docs.netlify.app/favicon.svg',
+    logo: 'https://nuraui.com/favicon.svg',
     packageName: 'iles',
-    homepage: 'https://github.com/ElMassimo/iles',
+    homepage: 'https://github.com/nuraui/nurajs',
     componentStateTypes,
     app: app as any,
   }, (api) => {
@@ -192,16 +192,16 @@ export function installDevtools (app: App, config: AppClientConfig) {
   })
 }
 
-function findIsland (component: any): any {
+function findIsland(component: any): any {
   if (!component) return null
   if (component.strategy?.startsWith('client:')) return component
   return findIsland(component.$parent)
 }
 
-function getStrategy (island: any) {
+function getStrategy(island: any) {
   return strategyLabels[island.strategy]
 }
 
-function getMediaQuery (island: any) {
+function getMediaQuery(island: any) {
   if (island.strategy === 'client:media') return island['client:media']
 }

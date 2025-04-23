@@ -32,7 +32,7 @@ const presets = {
 }
 
 export default defineConfig({
-  siteUrl: 'https://the-vue-point-with-iles.netlify.app/',
+  siteUrl: 'https://the-vue-point-with-nuraui.com/',
   turbo: true,
   jsx: 'solid',
   prettyUrls: false,

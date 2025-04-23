@@ -20,14 +20,14 @@
     },
     "./package.json": "./package.json"
   },
-  "funding": "https://github.com/sponsors/ElMassimo",
+  "funding": "https://github.com/sponsors/nuraui",
   "author": "Máximo Mussini <maximomussini@gmail.com>",
   "repository": {
     "type": "git",
-    "url": "https://github.com/ElMassimo/iles"
+    "url": "https://github.com/nuraui/nurajs"
   },
-  "homepage": "https://github.com/ElMassimo/iles",
-  "bugs": "https://github.com/ElMassimo/iles/issues",
+  "homepage": "https://github.com/nuraui/nurajs",
+  "bugs": "https://github.com/nuraui/nurajs/issues",
   "dependencies": {
     "hast-util-heading-rank": "^3.0.0",
     "hast-util-to-string": "^3.0.0"

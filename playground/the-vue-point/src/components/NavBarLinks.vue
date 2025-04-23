@@ -7,7 +7,7 @@
     <span class="mr-1 ml-1">·</span>
     <a
       class="hover:text-gray-700"
-      href="https://github.com/ElMassimo/iles/tree/main/playground/the-vue-point"
+      href="https://github.com/nuraui/nurajs/tree/main/playground/the-vue-point"
       target="_blank"
       rel="noopener noreferrer"
     ><span class="hidden sm:inline">GitHub</span> Source</a>

@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://iles-docs.netlify.app">
-    <img src="https://github.com/ElMassimo/iles/blob/main/docs/images/banner.png"/>
+  <a href="https://nuraui.com">
+    <img src="https://github.com/nuraui/nurajs/blob/main/docs/images/banner.png"/>
   </a>
 </p>
 
@@ -24,21 +24,21 @@
 </table>
 </p>
 
-[îles]: https://github.com/ElMassimo/iles
-[docs]: https://iles-docs.netlify.app
-[twitter]: https://twitter.com/ilesjs
-[follow me]:  https://twitter.com/MaximoMussini
+[îles]: https://github.com/nuraui/nurajs
+[docs]: https://nuraui.com
+[twitter]: https://twitter.com/nuraui
+[follow me]:  https://twitter.com/techakayy
 
-[guide]: https://iles-docs.netlify.app/guide/introduction
-[configuration reference]: https://iles-docs.netlify.app/config
+[guide]: https://nuraui.com/guide/introduction
+[configuration reference]: https://nuraui.com/config
 
-[blog]: https://the-vue-point-with-iles.netlify.app/
+[blog]: https://the-vue-point-with-nuraui.com/
 
-[partial hydration]: https://iles-docs.netlify.app/guide/islands
-[Batteries Included]: https://iles-docs.netlify.app/guide/project-structure#components
-[Multi-Framework]: https://iles-docs.netlify.app/guide/frameworks
-[markdown]: https://iles-docs.netlify.app/guide/markdown
-[routing]: https://iles-docs.netlify.app/guide/routing
+[partial hydration]: https://nuraui.com/guide/islands
+[Batteries Included]: https://nuraui.com/guide/project-structure#components
+[Multi-Framework]: https://nuraui.com/guide/frameworks
+[markdown]: https://nuraui.com/guide/markdown
+[routing]: https://nuraui.com/guide/routing
 [devtools]: https://user-images.githubusercontent.com/1158253/133314267-f0ba784c-ff64-4ee8-b2bf-97ecffc2facd.jpg
 [hydration timeline]: https://user-images.githubusercontent.com/1158253/133314279-1edc22d1-3ffb-414e-b994-212cb316593b.jpg
 

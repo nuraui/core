@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://iles-docs.netlify.app">
-    <img src="https://github.com/ElMassimo/iles/blob/main/docs/images/banner.png"/>
+  <a href="https://nuraui.com">
+    <img src="https://github.com/nuraui/nurajs/blob/main/docs/images/banner.png"/>
   </a>
 </p>
 
@@ -18,8 +18,8 @@
 </table>
 </p>
 
-[îles]: https://github.com/ElMassimo/iles
-[components]: https://iles-docs.netlify.app/guide/project-structure
+[îles]: https://github.com/nuraui/nurajs
+[components]: https://nuraui.com/guide/project-structure
 [unplugin-icons]: https://github.com/antfu/unplugin-icons
 
 An [îles] module to add and configure [unplugin-icons]:

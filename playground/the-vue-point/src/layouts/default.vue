@@ -4,7 +4,7 @@ useHead({
     {
       async: true,
       children:
-          'console.log("Powered by îles 🏝", "https://iles-docs.netlify.app")',
+          'console.log("Powered by îles 🏝", "https://nuraui.com")',
     },
   ],
 })
@@ -43,7 +43,7 @@ useHead({
       <slot/>
       <footer v-if="!$frontmatter.hideFooter" class="w-full">
         <div class="pb-12 text-center text-sm xl:col-start-2 xl:col-span-3">
-          <a class="inline-block" href="https://iles-docs.netlify.app">
+          <a class="inline-block" href="https://nuraui.com">
             Built with
             <img
               class="iles inline-block h-6 ml-0.5 -mt-3"

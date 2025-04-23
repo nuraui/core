@@ -15,6 +15,17 @@ const testConfig = {
 export default defineConfig({
   siteUrl: 'https://example.com/',
   pagesDir: join(__dirname, 'playground/the-vue-point/src/pages'),
+  modules: [
+    [
+      '@pinegrow/iles-module',
+      {
+        liveDesigner: {
+          //...
+        },
+      },
+    ],
+    //...
+  ],
   vite: {
     resolve: {
       alias: {

@@ -33,9 +33,9 @@
   ],
   "author": "Máximo Mussini",
   "license": "MIT",
-  "homepage": "https://github.com/ElMassimo/iles",
+  "homepage": "https://github.com/nuraui/nurajs",
   "bugs": {
-    "url": "https://github.com/ElMassimo/iles/issues"
+    "url": "https://github.com/nuraui/nurajs/issues"
   },
   "devDependencies": {
     "preact": "^10.24.3",

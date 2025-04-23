@@ -16,7 +16,7 @@ import site from './src/site'
 const { title, description } = site
 
 export default defineConfig({
-  siteUrl: 'https://iles-docs.netlify.app',
+  siteUrl: 'https://nuraui.com',
 
   extendFrontmatter(frontmatter, filename) {
     if (filename.includes('/recipes/') && !filename.includes('/recipes/index.vue')) {

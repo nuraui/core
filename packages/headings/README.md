@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://iles-docs.netlify.app">
-    <img src="https://github.com/ElMassimo/iles/blob/main/docs/images/banner.png"/>
+  <a href="https://nuraui.com">
+    <img src="https://github.com/nuraui/nurajs/blob/main/docs/images/banner.png"/>
   </a>
 </p>
 
@@ -18,10 +18,10 @@
 </table>
 </p>
 
-[îles]: https://github.com/ElMassimo/iles
-[docs]: https://iles-docs.netlify.app
+[îles]: https://github.com/nuraui/nurajs
+[docs]: https://nuraui.com
 [rehype]: https://github.com/rehypejs/rehype
-[markdown]: https://iles-docs.netlify.app/guide/markdown
+[markdown]: https://nuraui.com/guide/markdown
 
 An [îles] module that injects a [rehype] plugin to parse headings in
 [MDX documents][markdown]:

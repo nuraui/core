@@ -1,6 +1,6 @@
 <p align="center">
-  <a href="https://iles-docs.netlify.app">
-    <img src="https://github.com/ElMassimo/iles/blob/main/docs/images/banner.png"/>
+  <a href="https://nuraui.com">
+    <img src="https://github.com/nuraui/nurajs/blob/main/docs/images/banner.png"/>
   </a>
 </p>
 
@@ -18,14 +18,14 @@
 </table>
 </p>
 
-[îles]: https://github.com/ElMassimo/iles
-[docs]: https://iles-docs.netlify.app
-[MDX]: https://iles-docs.netlify.app/guide/markdown
-[alias]: https://iles-docs.netlify.app/guide/project-structure#default-app-structure
+[îles]: https://github.com/nuraui/nurajs
+[docs]: https://nuraui.com
+[MDX]: https://nuraui.com/guide/markdown
+[alias]: https://nuraui.com/guide/project-structure#default-app-structure
 [vite-plugin-image-presets]: https://github.com/ElMassimo/vite-plugin-image-presets
 
-[live]: https://the-vue-point-with-iles.netlify.app/
-[vuepoint]: https://github.com/ElMassimo/iles/tree/main/playground/the-vue-point/iles.config.ts
+[live]: https://the-vue-point-with-nuraui.com/
+[vuepoint]: https://github.com/nuraui/nurajs/tree/main/playground/the-vue-point/iles.config.ts
 
 An [îles] module that configures [`vite-plugin-image-presets`][vite-plugin-image-presets], allowing you to easily define presets to optimize and convert images:
 
