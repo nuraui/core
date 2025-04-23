@@ -15,7 +15,7 @@ const __dirname = path.dirname(fileURLToPath(import.meta.url))
 const require = createRequire(import.meta.url)
 
 const args = minimist(process.argv.slice(2))
-const name = args._[0]?.trim() || 'iles'
+const name = args._[0]?.trim() || 'nurajs'
 
 const pkg = jsPackage()
 
@@ -44,7 +44,7 @@ const versionIncrements = [
 /**
  * @param {import('semver').ReleaseType} i
  */
-function inc (i) {
+function inc(i) {
   return semver.inc(pkg.version, i)
 }
 
@@ -53,7 +53,7 @@ function inc (i) {
  * @param {string[]} args
  * @param {object} opts
  */
-async function run (bin, args, opts = {}) {
+async function run(bin, args, opts = {}) {
   return execa(bin, args, { stdio: 'inherit', ...opts })
 }
 
@@ -62,25 +62,25 @@ async function run (bin, args, opts = {}) {
  * @param {string[]} args
  * @param {object} opts
  */
-async function dryRun (bin, args, opts = {}) {
+async function dryRun(bin, args, opts = {}) {
   console.info(pc.blue(`[dryrun] ${bin} ${args.join(' ')}`), opts)
 }
 
 /**
  * @param {string} msg
  */
-function step (msg) {
+function step(msg) {
   console.info(pc.cyan(msg))
 }
 
 /**
  * @param {string} paths
  */
-function resolve (paths) {
+function resolve(paths) {
   return path.resolve(__dirname, `../packages/${name}/${paths}`)
 }
 
-function jsPackage () {
+function jsPackage() {
   const path = resolve('package.json')
   const content = fs.readFileSync(path, 'utf-8')
   return {
@@ -88,14 +88,14 @@ function jsPackage () {
     path,
     content,
     ...require(path),
-    updateVersion (version) {
+    updateVersion(version) {
       const newContent = { ...JSON.parse(content), version }
       fs.writeFileSync(path, `${JSON.stringify(newContent, null, 2)}\n`)
     },
   }
 }
 
-async function main () {
+async function main() {
   const runIfNotDry = isDryRun ? dryRun : run
 
   /**
@@ -129,7 +129,7 @@ async function main () {
 
   if (!semver.valid(targetVersion)) throw new Error(`invalid target version: ${targetVersion}`)
 
-  const tag = name === 'iles' ? `v${targetVersion}` : `${name}@${targetVersion}`
+  const tag = name === 'nurajs' ? `v${targetVersion}` : `${name}@${targetVersion}`
 
   /**
    * @type {{ yes: boolean }}
@@ -179,7 +179,7 @@ async function main () {
  * @param {string} version
  * @param {Function} runIfNotDry
  */
-async function publishPackage (version, runIfNotDry) {
+async function publishPackage(version, runIfNotDry) {
   try {
     await runIfNotDry('pnpm', ['publish', '--access', 'public'], {
       stdio: 'inherit',

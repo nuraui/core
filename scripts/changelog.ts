@@ -5,7 +5,7 @@ import { execa } from 'execa'
 import { fileURLToPath } from 'url'
 
 const args = minimist(process.argv.slice(2))
-const name = args._[0]?.trim() || 'iles'
+const name = args._[0]?.trim() || 'nurajs'
 const __dirname = path.dirname(fileURLToPath(import.meta.url))
 
 /**
@@ -20,9 +20,9 @@ const run = async (bin, args, opts = {}) => await execa(bin, args, { stdio: 'inh
  */
 const resolve = paths => path.resolve(__dirname, `../packages/${name}/${paths}`)
 
-const tagPrefix = name === 'iles' ? 'v' : `${name}@`
+const tagPrefix = name === 'nurajs' ? 'v' : `${name}@`
 
-async function main () {
+async function main() {
   await run('npx', [
     'conventional-changelog',
     '-p', 'angular',
