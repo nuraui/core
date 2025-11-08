@@ -95,6 +95,12 @@ export function resolveAliases (root: string, userConfig: UserConfig): AliasOpti
       replacement: require.resolve(`@islands/hydration/${name}`),
     })),
     {
+      find: /^unhead$/,
+      replacement: require.resolve(
+        'unhead',
+      ),
+    },
+    {
       find: /^@unhead\/vue$/,
       replacement: require.resolve(
         '@unhead/vue',

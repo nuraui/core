@@ -1,7 +1,7 @@
 {
   "name": "nurajs",
   "description": "Vite & Vue powered static site generator with partial hydration",
-  "version": "0.10.0-beta.3",
+  "version": "0.10.0-beta.4",
   "type": "module",
   "bin": {
     "iles": "bin/iles.js"
