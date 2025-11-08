@@ -75,6 +75,12 @@ export function resolveAliases (root: string, userConfig: UserConfig): AliasOpti
       ),
     },
     {
+      find: /^vue\/server-renderer$/,
+      replacement: require.resolve(
+        '@vue/server-renderer',
+      ),
+    },
+    {
       find: /^vue-router$/,
       replacement: require.resolve(
         'vue-router/dist/vue-router.esm-bundler.js',
@@ -88,6 +94,36 @@ export function resolveAliases (root: string, userConfig: UserConfig): AliasOpti
       find: new RegExp(`^@islands/hydration/${name}$`),
       replacement: require.resolve(`@islands/hydration/${name}`),
     })),
+    {
+      find: /^@unhead\/vue$/,
+      replacement: require.resolve(
+        '@unhead/vue',
+      ),
+    },
+    {
+      find: /^@unhead\/vue\/components$/,
+      replacement: require.resolve(
+        '@unhead/vue/components',
+      ),
+    },
+    {
+      find: /^@vue\/devtools-api$/,
+      replacement: require.resolve(
+        '@vue/devtools-api',
+      ),
+    },
+    {
+      find: /^@vue\/devtools-kit$/,
+      replacement: require.resolve(
+        '@vue/devtools-kit',
+      ),
+    },
+    {
+      find: /^@vue\/devtools-shared$/,
+      replacement: require.resolve(
+        '@vue/devtools-shared',
+      ),
+    },
   ]
 
   return aliases

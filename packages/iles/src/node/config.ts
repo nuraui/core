@@ -275,7 +275,7 @@ function appConfigDefaults (appConfig: AppConfig, userConfig: UserConfig, env: C
     },
     // For details, refer to https://github.com/antfu/unplugin-vue-components#configuration
     components: {
-      dts: true,
+      dts: false,
       extensions: ['vue', 'jsx', 'tsx', 'js', 'ts', 'mdx', 'svelte'],
       include: [/\.vue$/, /\.vue\?vue/, /\.mdx?/],
       dirs: `${srcDir}/components`,
@@ -287,7 +287,7 @@ function appConfigDefaults (appConfig: AppConfig, userConfig: UserConfig, env: C
     },
     // For details, refer to https://github.com/antfu/unplugin-auto-import#configuration
     autoImport: {
-      dts: true,
+      dts: false,
       include: [
         /\.[tj]sx?$/, // .ts, .tsx, .js, .jsx
         /\.vue$/,
