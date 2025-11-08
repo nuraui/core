@@ -40,7 +40,7 @@ export const USER_SITE_ID_VIRTUAL_RESOLVED = `\0${USER_SITE_ID_VIRTUAL}`
 
 export const NOT_FOUND_REQUEST_PATH = '@islands/components/NotFound'
 
-export function resolveAliases (root: string, userConfig: UserConfig): AliasOptions {
+export function resolveAliases(root: string, userConfig: UserConfig): AliasOptions {
   const paths: Record<string, string> = {
     '/@shared': SHARED_PATH,
     [USER_APP_ID]: USER_APP_REQUEST_PATH,
@@ -101,6 +101,30 @@ export function resolveAliases (root: string, userConfig: UserConfig): AliasOpti
       ),
     },
     {
+      find: /^@unhead\/dom$/,
+      replacement: require.resolve(
+        '@unhead/dom',
+      ),
+    },
+    {
+      find: /^@unhead\/schema$/,
+      replacement: require.resolve(
+        '@unhead/schema',
+      ),
+    },
+    {
+      find: /^@unhead\/shared$/,
+      replacement: require.resolve(
+        '@unhead/shared',
+      ),
+    },
+    {
+      find: /^@unhead\/ssr$/,
+      replacement: require.resolve(
+        '@unhead/ssr',
+      ),
+    },
+    {
       find: /^@unhead\/vue$/,
       replacement: require.resolve(
         '@unhead/vue',
@@ -110,6 +134,12 @@ export function resolveAliases (root: string, userConfig: UserConfig): AliasOpti
       find: /^@unhead\/vue\/components$/,
       replacement: require.resolve(
         '@unhead/vue/components',
+      ),
+    },
+    {
+      find: /^@unhead\/vue\/polyfill$/,
+      replacement: require.resolve(
+        '@unhead/vue/polyfill',
       ),
     },
     {
