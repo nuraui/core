@@ -1,3 +1,7 @@
+# [0.10.0-beta.6](https://github.com/nuraui/core/compare/v0.10.0-beta.2...v0.10.0-beta.6) (2025-11-10)
+
+
+
 # [0.10.0-beta.2](https://github.com/nuraui/core/compare/v0.10.0-beta.1...v0.10.0-beta.2) (2025-04-23)
 
 

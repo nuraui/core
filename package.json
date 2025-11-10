@@ -4,7 +4,7 @@
   "private": true,
   "packageManager": "pnpm@9.8.0",
   "scripts": {
-    "build:all": "pnpm nx run-many --target=build --all --exclude docs --exclude vue-blog",
+    "build:all": "pnpm nx run-many --target=build --all --exclude docs --exclude vue-blog --exclude a-simple-iles-app",
     "dev": "pnpm -r --parallel --filter './packages/**' run dev",
     "lint:all": "pnpm nx run-many --target=lint --all",
     "lint:fix:all": "pnpm nx run-many --target=lint:fix --all",
